@@ -9,7 +9,7 @@ export default class VehicleSearch extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      make: 'Toyota',
+      make: '',
       model: 'Select your car model',
       year: 'Select your car year',
       transmission: 'Select your vehicle transmission',

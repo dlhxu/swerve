@@ -5,7 +5,13 @@ export default class RouteSearch extends React.Component {
   static navigationOptions ={
     title: 'Route Search',
   };
-
+  constructor(props) {
+    super(props);
+    this.state = {
+      start: 'Start location',
+      destination:'Destination',
+    };
+  }
   render() {
     const vehicleData = this.props.navigation.getParam('VehicleSearch', 'no data sad');
     // console.log(vehicleData);
@@ -18,9 +24,14 @@ export default class RouteSearch extends React.Component {
         <Text>year: {vehicleData.year}</Text>
         <Text>transmission: {vehicleData.transmission}</Text>
         <Text>drivetrain: {vehicleData.drive}</Text>
+        <Text>Start Location: {this.state.start}</Text>
+        <Text>Destination: {this.state.destination}</Text>
         <Button
           title="Let's go to our results"
-          onPress={() => this.props.navigation.navigate('ResultsPage')}
+          onPress={() => this.props.navigation.navigate('ResultsPage', {
+            VehicleSearch: vehicleData,
+            RouteSearch: this.state,
+          })}
         />
       </View>
     );
