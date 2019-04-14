@@ -1,27 +1,22 @@
 import React from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
 import {createStackNavigator, createAppContainer} from 'react-navigation';
-
+import VehicleSearch from './VehicleSearch';
+import RouteSearch from './RouteSearch'
+import ResultsPage from './ResultsPage'
 
 class HomeScreen extends React.Component {
+  static navigationOptions ={
+    title: 'Home',
+  };
   render() {
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Text>Home Screen</Text>
+        <Text>Start here</Text>
         <Button
-          title="Go to Details"
-          onPress={() => this.props.navigation.navigate('Details')}
+          title="Let's get started"
+          onPress={() => this.props.navigation.navigate('VehicleSearch')}
         />
-      </View>
-    );
-  }
-}
-
-class DetailsScreen extends React.Component {
-  render() {
-    return (
-      <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-        <Text>Details Screen</Text>
       </View>
     );
   }
@@ -30,7 +25,9 @@ class DetailsScreen extends React.Component {
 const AppNavigator = createStackNavigator(
   {
     Home: HomeScreen,
-    Details: DetailsScreen
+    VehicleSearch: VehicleSearch,
+    RouteSearch: RouteSearch,
+    ResultsPage: ResultsPage,
   },
   {
     initialRouteName: "Home"
@@ -38,6 +35,7 @@ const AppNavigator = createStackNavigator(
 );
 
 const AppContainer = createAppContainer(AppNavigator);
+
 
 export default class App extends React.Component {
   render() {
