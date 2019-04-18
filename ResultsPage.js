@@ -8,6 +8,7 @@ export default class ResultsPage extends React.Component {
   render() {
     const vehicleData = this.props.navigation.getParam('VehicleSearch', 'no data sad');
     const routeData = this.props.navigation.getParam('RouteSearch', 'no data sad');
+
     return (
       <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
         <Text>Results!</Text>
@@ -21,6 +22,8 @@ export default class ResultsPage extends React.Component {
         <Text>Start Location: {routeData.start}</Text>
         <Text>Destination: {routeData.destination}</Text>
         <Text>Results</Text>
+        <Text>City Mileage: {vehicleData.cityMileage}</Text>
+        <Text>Highway Mileage mileage: {vehicleData.highwayMileage}</Text>
       </View>
     );
   }
