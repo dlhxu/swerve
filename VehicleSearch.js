@@ -31,7 +31,7 @@ export default class VehicleSearch extends React.Component {
     console.log(this.state);
     console.log(JSON.stringify(this.state));
     let response = await fetch(
-      'http://10.255.136.8:5000/api/swerve-vehicle-data',{
+      'http://172.20.10.3:5000/api/swerve-vehicle-data',{
         method: 'POST',
         headers: {
           'Accept': 'application/json',
